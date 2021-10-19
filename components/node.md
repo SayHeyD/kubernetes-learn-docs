@@ -2,4 +2,4 @@
 
 # Node
 
-A node is a server or v-server hostet anywhere.
+A node is a server or v-server hostet anywhere, that is publically reachable.
