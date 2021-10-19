@@ -28,7 +28,7 @@ afterwards we need to restart docker and kubelet: ```systemctl restart docker &&
 
 ## Master installation
 
-After our preperation we just need to execute ```kubeadm init --pod-network-cidr 10.0.0.0/16``` to initialize our master node.
+After our preperation we just need to execute ```kubeadm init --pod-network-cidr 10.0.0.0/8``` to initialize our master node.
 
 If the installation was successful we will be presented with a console output similar to:
 
