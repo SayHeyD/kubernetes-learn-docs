@@ -4,7 +4,7 @@
 
 To achieve an architecure to provide the bases of distibuted services, the services which provides this possibility iteself needs to be a distributed service. This is why it doesn't really make sense to use a cluster where there is only one master or one worker node. To achieve distribution there must be at least two workers and two masters. That said, it is possible to run a kubernetes cluster with only one master and workernwhich in my opinion only makes sense in development or practice environments. An alternative for both would be [minikube](https://minikube.sigs.k8s.io/docs/start/) as it requires less setup and gets you going faster.
 
-## Hardware requirements
+## Hardware requirements
 
 Since all the applications are running on the worker nodes, the nodes will probably need more resources then the master nodes, as these only really come into play if something doesn't work right or a request from a client is made. The hardware of the worker nodes therefore should be dependent on what you are going to run on them.
 
