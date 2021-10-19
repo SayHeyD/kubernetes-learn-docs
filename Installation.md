@@ -26,20 +26,6 @@ or just execute the following command: ```printf '{\n"exec-opts": ["native.cgrou
 
 afterwards we need to restart docker and kubelet: ```systemctl restart docker && systemctl restart kubelet```
 
-If the worker was registered successfully we shoudl be presented with the following console output.
-
-```
-This node has joined the cluster:
-* Certificate signing request was sent to apiserver and a response was received.
-* The Kubelet was informed of the new secure connection details.
-
-Run 'kubectl get nodes' on the control-plane to see this node join the cluster.
-```
-
-To verify that our node has been added to our cluster we will execute the ```kubectl get nodes``` command on our master node.
-
-We should now see two nodes both with the status ```Ready```
-
 ## Master installation
 
 After our preperation we just need to execute ```kubeadm init --pod-network-cidr 10.0.0.0/16``` to initialize our master node.
@@ -83,6 +69,20 @@ if we now execute ```kubectl get nodes``` again we should see that our master st
 ## Worker installation
 
 Installing our worker is way easier. We just need to execute the ```kubeadm join ...``` command printed out in the console earlier.
+
+If the worker was registered successfully we should be presented with the following console output.
+
+```
+This node has joined the cluster:
+* Certificate signing request was sent to apiserver and a response was received.
+* The Kubelet was informed of the new secure connection details.
+
+Run 'kubectl get nodes' on the control-plane to see this node join the cluster.
+```
+
+To verify that our node has been added to our cluster we will execute the ```kubectl get nodes``` command on our master node.
+
+We should now see two nodes both with the status ```Ready```
 
 ## Troubleshooting
 
