@@ -54,7 +54,7 @@ Then you can join any number of worker nodes by running the following on each as
 kubeadm join <IP_OF_DEVICE>:6443 --token <TOKEN_TO_JOIN>
 ```
 
-Save the last printed out command or the value specified after ```--token``` somewhere. We need it later to join our worker node to our cluster. Notice that this token is only valid for 24 hours. After the token expires you will have to create a new one.
+Save the last printed out command or the value specified after ```--token``` somewhere. We need it later to join our worker node to our cluster. Notice that this token is only valid for 24 hours. After the token expires you will have to [create a new one](./cluster-management/bootstrap-tokens.md).
 
 Execute: ```export KUBECONFIG=/etc/kubernetes/admin.conf```
 
