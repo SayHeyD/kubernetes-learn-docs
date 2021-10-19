@@ -22,7 +22,7 @@ We need to configure docker to you systemd a s it's cgroup driver. To accomplish
 }
 ```
 
-or just execute the following command: ```printf '{\n"exec-opts": ["native.cgroupdriver=systemd"\n}\n' > /etc/docker/daemon.json```
+or just execute the following command: ```printf '{\n\t"exec-opts": ["native.cgroupdriver=systemd"\n}\n' > /etc/docker/daemon.json```
 
 afterwards we need to restart docker and kubelet: ```systemctl restart docker && systemctl restart kubelet```
 
