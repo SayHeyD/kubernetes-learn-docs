@@ -4,7 +4,7 @@ This repository contains the steps i took to start learning kubernetes.
 
 ## Contents
 
-1. [Installation](./Installation.md)
+1. [Installation](./installation.md)
 2. Components
    1. [Node](./components/node.md)
    2. [Volumes](./components/volumes.md)
@@ -15,8 +15,9 @@ This repository contains the steps i took to start learning kubernetes.
    7. [Ingress](./components/ingress.md)
    8. [StatefulSet](./components/stateful-set.md)
    9. [Deployment](./components/deployment.md)
-3. [Helm]()
-4. Cluster managment
+3. [K8s architecture](./architecture.md)
+4. [Helm]()
+5. Cluster managment
    1. [Bootstrap tokens](./cluster-management/bootstrap-tokens.md)
 
 ## Learning resources
