@@ -5,7 +5,7 @@ This repository contains the steps i took to start learning kubernetes.
 ## Contents
 
 1. [Installation](./installation.md)
-2. Components
+2. [Components](./components/)
    1. [Node](./components/node.md)
    2. [Volumes](./components/volumes.md)
    3. [Secrets](./components/secrets.md)
