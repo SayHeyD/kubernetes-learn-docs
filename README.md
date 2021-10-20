@@ -16,8 +16,9 @@ This repository contains the steps i took to start learning kubernetes.
    8. [StatefulSet](./components/stateful-set.md)
    9. [Deployment](./components/deployment.md)
 3. [K8s architecture](./architecture.md)
-4. [Helm]()
-5. Cluster managment
+4. [Useful kubectl commands](./architecture.md)
+5. [Helm]()
+6. Cluster managment
    1. [Bootstrap tokens](./cluster-management/bootstrap-tokens.md)
 
 ## Learning resources
