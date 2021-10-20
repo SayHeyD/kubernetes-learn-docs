@@ -136,3 +136,31 @@ With this command we can apply k8s configuration files which are written in YAML
 ```bash
 kubectl apply -f https://k8s.io/examples/controllers/nginx-deployment.yaml
 ```
+
+The file we just applied.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+```
+
+If this file would change after you applied it for the first time, applying it again would not create a new deployment but update the existing one, if the metadata name doesn't change.
