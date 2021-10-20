@@ -28,7 +28,7 @@ afterwards we need to restart docker and kubelet: ```systemctl restart docker &&
 
 ## Master installation
 
-After our preperation we just need to execute ```kubeadm init --pod-network-cidr 10.0.0.0/8``` to initialize our master node.
+After our preperation we just need to execute ```kubeadm init --pod-network-cidr 10.244.0.0/16``` to initialize our master node. The network cidr has to be set like this for our network addon to work properly.
 
 If the installation was successful we will be presented with a console output similar to:
 
@@ -86,7 +86,7 @@ We should now see two nodes both with the status ```Ready```
 
 ## Troubleshooting
 
-If you fucked up anything on any node, the command ```kubeadm reset && rm -rf /etc/cni/net.d && iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X``` will reset the kubelet.
+If you fucked up anything on any node, the command ```kubeadm reset -f && rm -rf /etc/cni/net.d && iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X``` will reset the kubelet.
 
 If you get the message ```[kubelet-check] The HTTP call equal to 'curl -sSL http://localhost:10248/healthz' failed with error: Get "http://localhost:10248/healthz": dial tcp 127.0.0.1:10248: connect: connection refused.``` during the execution of ```kubeadm init``` make sure you configured docker and restartet docker and kubelet after reconfiguring.
 
