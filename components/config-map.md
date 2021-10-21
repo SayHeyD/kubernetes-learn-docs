@@ -24,5 +24,5 @@ data:
 Contrary to a [secret](secrets.md) we do not have to provide a type for our ConfigMap. Also our data doesn't need to be base64 encoded, instead it's written as plain text. You can add as many key-value pairs as you want and apply the file just like any other config file with:
 
 ```bash
-kubectl apply -f you-config-file.yaml
+kubectl apply -f <YOUR_CONFIGMAP_FILE>
 ```
