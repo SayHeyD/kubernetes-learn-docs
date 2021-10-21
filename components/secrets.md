@@ -34,6 +34,12 @@ echo -n 'yourString' | base64 | cat -e
 
 The secret type property needs to present. [These options are provided by defualt by k8s](https://kubernetes.io/docs/concepts/configuration/secret/#secret-types).
 
+If you want to use secrets make sure you apply them **before** you create any other component that needs the secret to be present:
+
+```bash
+kubectl apply -f <YOUR_SECRETS_FILE>
+```
+
 ## Is this really secure?
 
 Kinda. Since these secret configuration files are stored on your server and hopefully nowhere else, they are secure in the context of the server. This means that if somebody would manage to break into your server they could read these files and probably guess, that the values are only encoded. K8s provides the possibility to [encrypt secrets](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/) which is not enabled by default.
