@@ -35,6 +35,84 @@ And with ```kind``` you specify what kind of [component](./components/) you want
 
 In the ```spec``` section you can define every property for your component. In this section you can f.ex. define how many replicas your deployment should have. What you can configure within this spec section is unqiue for every existing [component](./components).
 
+### Template
+
+A template is used to f.ex. define a pod configuration inside of a deployment configuration file. Everything definde in a template also needs it's own ```metadata``` and ```spec``` properties. A template could be looked at like a configuration file inside of a configuration file. In the example below we see a configuration file that would create a deployment with 2 replicas of a nginx pod.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-depl
+spec:
+  replicas: 2
+  selector:
+    ...
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.16
+        ports:
+        - containerPort: 8080
+```
+
+[Full configuration file](./configurations/simple_nginx_deployment.yaml)
+
+### Labels and Selectors
+
+Labels and selectors are used to connect components to eachother. This will eventually be used if you need your [pods](./components/pod.md) or [services](./components/service.md) to communicate with eachother. Labeling our components is possible with the data we provide int the ```metadata``` property and in the ```spec``` property we define our selectors.
+
+**Labels**
+
+```yaml
+...
+metadata:
+  labels:
+    app: nginx
+...
+```
+
+[Full configuration file](./configurations/simple_nginx_deployment.yaml)
+
+**Selectors**
+
+```yaml
+...
+selector:
+  matchLabels:
+    app: nginx
+...
+```
+
+[Full configuration file](./configurations/simple_nginx_deployment.yaml)
+
+When we f.ex. want to connect a deployment to pods we have to provide a key-value pair as the label for our components. The same key-value pair can then be used to define a selector.
+
+```yaml
+...
+spec:
+  replicas: 2
+  selector:
+    matchLabels:      # Match the label in the selector
+      app: nginx
+  template:
+    metadata:
+      labels:         # Set the label
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.16
+        ports:
+        - containerPort: 8080
+```
+
+[Full configuration file](./configurations/simple_nginx_deployment.yaml)
+
 ## What happens when applying a configuration
 
 K8s adds a status to your configuration. This does not have to be provided by you, this is managed by k8s and will automatically added to your configuration files once they're applied. With ```kubectl edit``` you can see what k8s writes into the status section. This status comes into play when you want to apply your configuration file again with some changes. Then k8s will compare what the desired and actual status of your configuration is. K8s needs to do this to be able to enforce the changes you wnat without completly recreating your configuration. You do not have to provide a status inside in a configuration file you have already applied.
