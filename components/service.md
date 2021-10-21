@@ -28,6 +28,9 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
+      nodePort: 30000
 ```
 
 Don't get confused. If you create an internal service the service still acts as a load balancer, we simply have to delcare it like this to make the service available externally. A complete list of types can be found in the [kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types).
+
+Also notice that the ```nodePort``` will be the port on which this service is reachable on every worker node. K8s defined a fixed port range for this nodePort which is 30000 - 32767. You cannot set ```nodePort``` to a number higher or lower then this range.
