@@ -1,4 +1,4 @@
-[← Concepts\Connecting a deployment with a service](../concepts/connecting-deployment-with-service.md)
+[← Concepts\Connecting a deployment with a service](../../concepts/connecting-deployment-with-service.md)
 
 # Connecting a deployment with a service
 
