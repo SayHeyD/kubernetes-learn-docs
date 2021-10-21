@@ -123,4 +123,4 @@ A common practice for storing configuration files it to store it with your code.
 
 Another option is to create a repository for only your configuration file.
 
-These configuration files are considered as [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service). It only bears advantages to have these files stored in a version controlled environment as it is way easier to rollback breaking cahnges this way.
+These configuration files are considered as [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service). It only bears advantages to have these files stored in a version controlled environment as it is way easier to rollback breaking cahanges this way.
