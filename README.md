@@ -18,7 +18,9 @@ This repository contains the steps i took to start learning kubernetes.
 3. [K8s architecture](./architecture.md)
 4. [Useful kubectl commands](./kubectl.md)
 5. [YAML configuration files](./yaml-configuration-files.md)
-6. Cluster managment
+6. Concepts
+   1. [Connecting a deployment with a service](./concepts/connecting-deployment-with-service.md)
+7. Cluster managment
    1. [Bootstrap tokens](./cluster-management/bootstrap-tokens.md)
 
 ## Learning resources
