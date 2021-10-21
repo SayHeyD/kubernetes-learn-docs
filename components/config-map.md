@@ -21,7 +21,7 @@ data:
   yourDataKey: yourDataValue 
 ```
 
-Contrary to a [secret](secrets.md) we do not have to provide a type for our ConfigMap. Also our data doesn't need to be base64 encoded, instead it's written as plain text. You can add as many key-value pairs as you want and apply the file just like any other config file with:
+Contrary to a [secret](secrets.md) we do not have to provide a type for our ConfigMap. Also our data doesn't need to be base64 encoded, instead it's written as plain text. When using configmaps it's important to apply them **before** you apply any other component that uses your configmap. You can add as many key-value pairs as you want and apply the file just like any other config file with:
 
 ```bash
 kubectl apply -f <YOUR_CONFIGMAP_FILE>
