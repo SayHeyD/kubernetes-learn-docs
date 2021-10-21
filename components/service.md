@@ -10,3 +10,24 @@ When creating a service you differentiate between internal services and external
 
 A services also acts as a weighted load balancer for the replicated pods that it contains. The load balancing works accross nodes and redirects traffic to the pod that currently has the lowset load.
 Because it doesn't make much sense to configure all of this manually k8s provides us with [deployments](./deployment.md) and [statefulSets](./stateful-set.md).
+
+## Exposing a service the outside
+
+If we want to access a service from outside the cluster we have to declare this in the configuration of our service. This can be done by adding the ```type:``` property to the ```spec:``` property of the service configuration. An external service to access an nginx server could look like this:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: ngninx-service
+spec:
+  selector:
+    app: nginx
+  type: Loadbalancer
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+```
+
+Don't get confused. If you create an internal service the service still acts as a load balancer, we simply have to delcare it like this to make the service available externally. A complete list of types can be found in the [kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types).
