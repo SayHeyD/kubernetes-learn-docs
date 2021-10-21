@@ -19,9 +19,21 @@ metadata:
   name: superduper-superSecret
 type: Opaque
 data:
-  superSecretUsername:
-  superSecretPassword:
+  superSecretUsername: ZnVycnlLaXR0ZW4K
+  superSecretPassword: ZGVmaW5pdGVseU15UGFzc3dvcmQK
   ...
 ```
 
-Not that the name and the keys inside of the data property can be picked freely. The secret type property needs to present. [These options are provided by defualt by k8s](https://kubernetes.io/docs/concepts/configuration/secret/#secret-types).
+Note that the name and the keys inside of the data property can be picked freely. The data you provide on your custom data properties needs to be base64 encoded. If you forget to encode your data your other components won't be able to read your secrets correctly. To encode a string with base64:
+
+**MacOS and Linux**
+
+```bash
+base64 <<< yourString
+```
+
+The secret type property needs to present. [These options are provided by defualt by k8s](https://kubernetes.io/docs/concepts/configuration/secret/#secret-types).
+
+## Is this really secure?
+
+Kinda. Since these secret configuration files are stored on your server and hopefully nowhere else, they are secure in the context of the server. This means that if somebody would manage to break into your server they could read these files and probably guess, that the values are only encoded. K8s provides the possibility to [encrypt secrets](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/) which is not enabled by default.
