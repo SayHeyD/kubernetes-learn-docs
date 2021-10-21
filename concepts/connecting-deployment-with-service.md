@@ -122,4 +122,12 @@ nginx-depl-f4b7bbcbc-p52g6   1/1     Running   0          13m   172.17.0.3   min
 nginx-depl-f4b7bbcbc-zrz69   1/1     Running   0          13m   172.17.0.4   minikube   <none>           <none>
 ```
 
-If the pods' IP addresses match the Enpoint IPs the description of the service provided us with, we can consider our service and deployment as working. 
+If the pods' IP addresses match the Enpoint IPs the description of the service provided us with, we can consider our service and deployment as working.
+
+## Deleting the service and deployment
+
+This is accomplished wiht the ```kubectl delete``` command, again expecting you to be in the root directory of this repository:
+
+```bash
+kubectl delete -f ./configurations/connecting-deployment-with-service/nginx-service-deployment.yaml && kubectl delete -f ./configurations/connecting-deployment-with-service/nginx-service.yaml
+```
