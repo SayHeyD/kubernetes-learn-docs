@@ -29,7 +29,7 @@ Note that the name and the keys inside of the data property can be picked freely
 **MacOS and Linux**
 
 ```bash
-base64 <<< yourString
+echo -n 'yourString' | base64 | cat -e
 ```
 
 The secret type property needs to present. [These options are provided by defualt by k8s](https://kubernetes.io/docs/concepts/configuration/secret/#secret-types).
