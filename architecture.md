@@ -10,7 +10,7 @@ Since all the applications are running on the worker nodes, the nodes will proba
 
 ## Master
 
-Masters are responsible for deciding where to start new [pods](components/pod.md), it is responsible for monitoring [pods](components/pod.md) and re-starting them if they for some reason die. Masters are also responsible to manage nodes that are members of the cluster and provide the logic to add and remove nodes to the cluster. How you can do this is described in the [bootsrap tokens documentation](cluster-management/bootstrap-tokens.md). To accomplish all of this a master node has to have for running processes:
+Masters are responsible for deciding where to start new [pods](components/pod.md), it is responsible for monitoring [pods](components/pod.md) and re-starting them if they for some reason die. Masters are also responsible to manage nodes that are members of the cluster and provide the logic to add and remove nodes to the cluster. How you can do this is described in the [bootsrap tokens documentation](cluster-management/bootstrap-tokens.md). To accomplish all of this a master node has to have four running processes:
 
 *all of these process are installed if you follow the [installation documentation](./installation.md)*
 
