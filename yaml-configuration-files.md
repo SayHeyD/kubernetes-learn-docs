@@ -11,7 +11,7 @@ The in depth documentation for this can be found [here](https://kubernetes.io/do
 For k8s to be able to understand the instruction we give it there needs to be a basic amount of information inside the files we provide. K8s need at least these properties to be present:
 
 ```yaml
-apiVersion: apps/v1
+apiVersion: <API_VERSION>
 kind: <RESOURCE_TYPE>
 metadata:
   name: <RESOURCE_NAME>
