@@ -20,7 +20,9 @@ This repository contains the steps i took to start learning kubernetes.
 5. [YAML configuration files](./yaml-configuration-files.md)
 6. Concepts
    1. [Connecting a deployment with a service](./concepts/connecting-deployment-with-service.md)
-7. Cluster managment
+7. Examples
+   1. [MongoDB & MongoExpress](./examples/mongoexpress-mongodb/README.md)
+8. Cluster managment
    1. [Bootstrap tokens](./cluster-management/bootstrap-tokens.md)
 
 ## Learning resources
